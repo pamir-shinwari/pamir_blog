@@ -16,8 +16,6 @@ bootstrap = Bootstrap5(app)
 ckeditor = CKEditor(app)
 
 
-
-
 class Base(DeclarativeBase):
     pass
 
