@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% from 'bootstrap5/form.html' import render_form %}
+
+{% block header %}
+    <div class="header" style="background-image: url(' static/assets/images/registration.webp')">
+        <h1 class="main_title"> Register</h1>
+        <h2 class="main_subtitle">Enter your information to register</h2>
+    </div>
+{%endblock%}
+
+
+{% block content %}
+
+<div class=" container_login">
+        <div class="login_form">
+            {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for message in messages%}
+                  <div class="flash_message">
+                    {{message}}
+                  </div>
+                {% endfor %}
+            {%endif%}
+        {% endwith%}
+                {{ render_form(form)}}
+                {% if form.password.data != form.password_again.data%}
+                        <p>password does not match</p>
+                {%endif%}
+        </div>
+
+</div>
+{%endblock%}

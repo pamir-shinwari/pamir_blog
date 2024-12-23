@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block header %}
+        <div class="header" style="background-image: url('../static/assets/images/index.webp')">
+            <h1 class="main_title"> Pamir's Blog</h1>
+        </div>
+{%endblock%}
+
+
+{% block content %}
+
+        {% for post in posts %}
+            <a class="posts" href="{{url_for('post_detail', id=post.id)}}">
+                <h2>{{post.title}}</h2>
+                <h3>{{post.subtitle}}</h3>
+                <p>by {{post.author.name}}</p>
+                <span>{{post.date}}</span>
+                <br>
+                <br>
+                <br>
+                <br>
+
+            </a>
+             {% if current_user.id == 1 %}
+            <div class="delete_button">
+                 <a class="btn btn-danger" href=" {{url_for('delete_post', post_id=post.id)}}"> Delete Post</a>
+            </div>
+            <hr>
+              {% endif%}
+        {% endfor %}
+
+        {% if current_user.id == 1 %}
+        <a class="btn btn-primary" href=" {{url_for('add_post')}}"> Add Post</a>
+
+        {% endif%}
+{%endblock%}

@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% from 'bootstrap5/form.html' import  render_form %}
+
+{%block header%}
+    <div class="header" style="background-image: url('{{post.post_img}}')">
+
+        <div class="main_title">
+            <h1 class="main_title">{{post.title}}</h1>
+        </div>
+
+        <div class="main_subtitle">
+            <h2>{{post.subtitle}}</h2>
+        </div>
+    </div>
+
+{% endblock%}
+
+{% block content %}
+
+
+        <p>{{post.body|safe}}</p>
+
+        {% if current_user. id == 1%}
+            <a class="btn btn-primary" href="{{url_for('edit_post', id=post.id)}}">Edit Post</a>
+        {% endif %}
+
+    <div class="comment_form">
+        {{render_form(form)}}
+        {{ckeditor.load()}}
+        {{ckeditor.config(name='text')}}
+    </div>
+
+<h3>Comments</h3>
+{% for comment in post.comments%}
+
+ <div class="comment_text">
+    <p>{{comment.text|safe}}</p>
+     <span>{{comment.author.name}}</span>
+ </div>
+{% endfor %}
+
+{% endblock%}

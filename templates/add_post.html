@@ -1,0 +1,16 @@
+{%  extends 'base.html' %}
+{% from 'bootstrap5/form.html' import render_form%}
+
+
+{%  block header%}
+<h1 class="main_title">Create a Post</h1>
+{% endblock%}
+
+{% block content %}
+<div class="add_post_form">
+
+    {{render_form(form, novalidate= False )}}
+    {{ ckeditor.load() }}
+    {{ ckeditor.config(name='body') }}
+</div>
+{% endblock%}
