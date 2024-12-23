@@ -11,7 +11,7 @@ import datetime
 import os
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = os.environ.get("SEC_KEY")
+app.config['SECRET_KEY'] = os.environ.get("SEC_KEY", "khan")
 bootstrap = Bootstrap5(app)
 ckeditor = CKEditor(app)
 
@@ -105,22 +105,24 @@ def register():
     if form.validate_on_submit():
         if form.password.data != form.password_again.data:
             flash("password does not match")
-        db_username = db.session.execute(db.select(User).where(User.username == form.username.data))
-        if db_username:
-            flash("user name is taken, please choose another one!")
-        else:
-            hashed_password = generate_password_hash(form.password.data, method='scrypt', salt_length=16)
-            user = User(
-                name=form.name.data,
-                username=form.username.data,
-                email=form.email.data,
-                password=hashed_password
-            )
 
-            db.session.add(user)
-            db.session.commit()
-            login_user(user)
-            return redirect(url_for('home'))
+        else:
+            db_username = db.session.execute(db.select(User).where(User.username == form.username.data)).scalar()
+            if db_username:
+                flash("user name is taken, please try another one!")
+            else:
+                hashed_password = generate_password_hash(form.password.data, method='scrypt', salt_length=16)
+                user = User(
+                    name=form.name.data,
+                    username=form.username.data,
+                    email=form.email.data,
+                    password=hashed_password
+                )
+
+                db.session.add(user)
+                db.session.commit()
+                login_user(user)
+                return redirect(url_for('home'))
     return render_template("register.html", form=form, logged_in=current_user.is_authenticated)
 
 
