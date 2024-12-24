@@ -12,19 +12,19 @@
 
 {% block content %}
 
-<div>
 
         <p>{{post.body|safe}}</p>
 
         {% if current_user. id == 1%}
             <a class="btn btn-primary" href="{{url_for('edit_post', id=post.id)}}">Edit Post</a>
         {% endif %}
-
+{% if current_user. id == 1%}
     <div class="comment_form">
         {{render_form(form)}}
         {{ckeditor.load()}}
         {{ckeditor.config(name='text')}}
     </div>
+{% endif %}
 
 <h3>Comments</h3>
 {% for comment in post.comments%}
@@ -37,5 +37,5 @@
 
 
     {% endfor %}
-</div>
+
 {% endblock%}
