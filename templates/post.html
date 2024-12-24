@@ -12,6 +12,7 @@
 
 {% block content %}
 
+<div>
 
         <p>{{post.body|safe}}</p>
 
@@ -32,6 +33,9 @@
     <p>{{comment.text|safe}}</p>
      <span>{{comment.author.name}}</span>
  </div>
-{% endfor %}
 
+
+
+    {% endfor %}
+</div>
 {% endblock%}
