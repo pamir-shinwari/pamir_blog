@@ -68,10 +68,14 @@ color: black;
 .svg{
 display: flex;
 justify-content: center;
-padding-top: 10px;
+
 }
 .svg-item{
-margin-right: 20px;
+margin-right: 40px;
+padding-top: 0;
+margin-bottom:20px;
+
+
 }
 
 .comment_form{
