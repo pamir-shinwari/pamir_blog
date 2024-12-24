@@ -2,15 +2,17 @@
 .container_header{
 background-color:black;
 color: white;
-height: 30vh;
-/*
-background-image: url('https://static.vecteezy.com/system/resources/thumbnails/023/010/450/small_2x/the-cup-of-latte-coffee-with-heart-shaped-latte-art-and-ai-generated-free-photo.jpg')
-*/
-
+height: 10vh;
 }
 .header{
 background-repeat: no-repeat;
 background-size: cover;
+display:flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+height: 30vh;
+background: center;
 }
 
 .container_body{
@@ -28,30 +30,10 @@ background-color: black;
 color: white;
 height: 10vh;
 font-size: 50px;
+position: fixed;
+bottom:0;
+width:100%;
 
-}
-
-.main_title{
-height: 20vh;
-display: flex;
-align-items: end;
-justify-content: center;
-font-size: 70px;
-
-  /*display: flex;
-  justify-content: center;
-  align-items: end;
-  height: 35vh;
-  ;*/
-
-}
-.main_subtitle{
-text-align: center;
- /* display: flex;
-  justify-content: center;
-  align-items: top;
-  height: 35vh;
-  font-size: 100px;*/
 }
 
 .navbar{
@@ -65,55 +47,28 @@ margin-right: 50px;
 text-decoration: none;
 }
 
-.container_login{
-
-}
-
 .login_title{
-
 text-align: center;
 }
+
 .login_form{
-
 text-align:center;
-
 }
 
 .btn{
 margin-left: 70%;
 }
 
-.add_post_form{
-
-}
-
 .posts{
 text-decoration: none;
 color: black;
-
-
-}
-
-/*
-.body_title{
-padding-top: 20px;
-font-family: italic;
-margin-bottom: 30%;
-font-size: 70px;
-text-align: center
-}*/
-
-.header{
-    height: 40vh;
 }
 
 .svg{
 display: flex;
 justify-content: center;
 padding-top: 10px;
-
 }
-
 .svg-item{
 margin-right: 20px;
 }
@@ -130,7 +85,6 @@ margin-top: 50px;
 .flash_message{
 color: red;
 margin-bottom: 20px;
-
 }
 
 .delete_button{

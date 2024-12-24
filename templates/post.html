@@ -2,15 +2,10 @@
 {% from 'bootstrap5/form.html' import  render_form %}
 
 {%block header%}
+
     <div class="header" style="background-image: url('{{post.post_img}}')">
-
-        <div class="main_title">
             <h1 class="main_title">{{post.title}}</h1>
-        </div>
-
-        <div class="main_subtitle">
-            <h2>{{post.subtitle}}</h2>
-        </div>
+            <h2 class="main_subtitle">{{post.subtitle}}</h2>
     </div>
 
 {% endblock%}

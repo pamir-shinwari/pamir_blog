@@ -8,7 +8,6 @@
 
 {% block content %}
 <div class="add_post_form">
-
     {{render_form(form, novalidate= False )}}
     {{ ckeditor.load() }}
     {{ ckeditor.config(name='body') }}
