@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}Pamir's Blog{% endblock%}</title>
     {{bootstrap.load_css()}}
+
+
+
     <link rel="stylesheet" href="../static/styles.css">
 
 
@@ -13,16 +16,16 @@
 
         <div class="container_header">
                 <div class="navbar">
-                        <a class="navitem" href="{{url_for('home')}}">Home</a>
-                        {% if not logged_in: %}
-                        <a class="navitem" href="{{url_for('login')}}">Login</a>
-                        <a class="navitem" href="{{url_for('register')}}">Register</a>
-                        {% endif%}
+<a class="navitem" href="{{url_for('home')}}">Home</a>
+{% if not logged_in: %}
+<a class="navitem" href="{{url_for('login')}}">Login</a>
+<a class="navitem" href="{{url_for('register')}}">Register</a>
+{% endif%}
 
-                        {% if logged_in: %}
-                        <a class="navitem" href="{{url_for('log_out')}}">Log Out</a>
-                        {% endif%}
-                </div>
+{% if logged_in: %}
+<a class="navitem" href="{{url_for('log_out')}}">Log Out</a>
+{% endif%}
+</div>
         </div>
 
             {% block header %}
