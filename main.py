@@ -11,7 +11,7 @@ import datetime
 import os
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = os.environ.get("SEC_KEY", "khan")
+app.config['SECRET_KEY'] = os.environ.get("SEC_KEY")
 bootstrap = Bootstrap5(app)
 ckeditor = CKEditor(app)
 
@@ -157,7 +157,7 @@ def post_detail(id):
         db.session.add(comment)
         db.session.commit()
         return redirect(url_for('post_detail', id=post.id))
-    return render_template("post.html", post=post, form=form)
+    return render_template("post.html", post=post, form=form, logged_in=current_user.is_authenticated)
 
 
 @app.route('/edit/<int:id>', methods=['POST', 'GET'])
@@ -198,4 +198,4 @@ def delete_post(post_id):
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug=False)
