@@ -69,9 +69,9 @@ margin-left: 70%;
 
 .posts{
 border:;
-border-radius: 50px;
+border-radius: 20px;
 margin-bottom: 40px;
-padding: 20px;
+padding: 10px;
 background-color: whitesmoke;
 
 }
@@ -117,6 +117,6 @@ flex-direction:column;
 }
 
 .post_title{
-font-weight:1000;
-font-size: 2rem;
+font-weight:bold;
+
 }
