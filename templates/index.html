@@ -12,12 +12,16 @@
 
         {% for post in posts %}
 <div class="posts" >
-            <a class="post" href="{{url_for('post_detail', id=post.id)}}">
-                <h2 class="post_title">{{post.title}}</h2>
-                <h3>{{post.subtitle}}</h3>
-                <p>by {{post.author.name}}</p>
-                <span>{{post.date}}</span>
-                      </a>
+        <div class="card" style="width:; height:;">
+        <img style="width:; height:18rem;" src="{{post.post_img}}" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">{{post.title}}</h5>
+          <p class="card-text">{{post.subtitle}}</p>
+            <p>by {{post.author.name}}</p>
+            <span>{{post.date}}</span>
+          <a href="{{url_for('post_detail', id=post.id)}}" class="btn btn-primary">Read</a>
+        </div>
+      </div>
     </div>
 
              {% if current_user.id == 1 %}
