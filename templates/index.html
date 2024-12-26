@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block header %}
-        <div class="header" style="background-image: url('../static/assets/images/index.webp')">
+        <div class="header" style="background-image: url('../static/assets/images/index.webp'); background-repeat: no-repeat; background-size: cover;  background-position: center;">
             <h1 class="main_title"> Pamir's Blog</h1>
             <h2 class="main_subtitle"> About Afghanistan and Technology </h2>
         </div>
@@ -13,7 +13,7 @@
         {% for post in posts %}
 <div class="posts" >
         <div class="card" style="width:; height:;">
-        <img style="width:; height:10rem;" src="{{post.post_img}}" class="card-img-top" alt="...">
+        <img style="width:; height:12rem;" src="{{post.post_img}}" class="card-img-top" alt="...">
         <div class="card-body">
           <h5 class="card-title">{{post.title}}</h5>
           <p class="card-text">{{post.subtitle}}</p>
