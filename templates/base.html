@@ -9,28 +9,32 @@
 
 
     <link rel="stylesheet" href="../static/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 
 </head>
 <body class="">
 
-        <div class="container_header">
-                <div class="navbar">
-<a class="navitem" href="{{url_for('home')}}">Home</a>
-{% if not logged_in: %}
-<a class="navitem" href="{{url_for('login')}}">Login</a>
-<a class="navitem" href="{{url_for('register')}}">Register</a>
-{% endif%}
 
-{% if logged_in: %}
-<a class="navitem" href="{{url_for('log_out')}}">Log Out</a>
-{% endif%}
+<div class="topnav" id="myTopnav">
+  <a href="{{url_for('home')}}" class="active">Home</a>
+     {% if not logged_in: %}
+        <a class="non_active" href="{{url_for('login')}}">Login</a>
+        <a class="non_active" href="{{url_for('register')}}">Register</a>
+    {% endif%}
+      {% if logged_in: %}
+  <a class="non_active" href="{{url_for('log_out')}}">Log Out</a>
+    {% endif%}
+  <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+    <i class="fa fa-bars"></i>
+  </a>
 </div>
-        </div>
+
 
             {% block header %}
 
             {%endblock%}
+
 
 
 
@@ -67,6 +71,18 @@
 
         </div>
         </footer>
+
+
+<script>
+function myFunction() {
+  var x = document.getElementById("myTopnav");
+  if (x.className === "topnav") {
+    x.className += " responsive";
+  } else {
+    x.className = "topnav";
+  }
+}
+</script>
 
 </body>
 </html>
