@@ -11,7 +11,7 @@ import datetime
 import os
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = os.environ.get("SEC_KEY", "khan")
+app.config['SECRET_KEY'] = os.environ.get("SEC_KEY")
 bootstrap = Bootstrap5(app)
 ckeditor = CKEditor(app)
 
@@ -198,4 +198,4 @@ def delete_post(post_id):
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug=False)
